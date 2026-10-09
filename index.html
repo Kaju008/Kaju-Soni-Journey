@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kaju Soni — From Seed to Story</title>
+  <meta name="description" content="The story of Kaju Soni, video and motion designer, told as a cashew that grows into a tree.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+  <!-- Fixed stage: everything visible lives here; the page scroll only drives the story -->
+  <div id="stage" aria-hidden="false">
+    <div id="world">
+      <!-- SKY / white hero -->
+      <section class="sky" aria-label="Hello">
+        <div class="aura a1"></div><div class="aura a2"></div><div class="aura a3"></div><div class="aura a4"></div>
+        <div class="sparkles" id="sparkles"></div>
+      </section>
+
+      <!-- GROUND: glossy surface + cut-away soil -->
+      <div id="ground">
+        <div class="ground-top">
+          <div class="grass-lip"></div>
+          <div class="grass-blades"></div>
+          <div class="horizon-glow"></div>
+        </div>
+        <div class="soil">
+          <svg id="strata" aria-hidden="true" preserveAspectRatio="none"></svg>
+          <div id="years" aria-hidden="true"></div>
+          <canvas id="motes"></canvas>
+          <svg id="roots" aria-hidden="true"></svg>
+          <div id="root-cards"></div>
+          <div class="chapter-tag" id="tag-roots"><span>Chapter 01</span>Roots<em>where it all started</em></div>
+          <div class="soon" id="soon"><span class="soon-dot"></span>The sprout is on its way&hellip; <em>next chapter in progress</em></div>
+        </div>
+      </div>
+
+      <!-- Impact FX -->
+      <div id="impact"><div class="ring"></div><div class="ring r2"></div><div class="flash"></div></div>
+
+      <!-- Kaju -->
+      <div id="kaju-wrap">
+        <div id="kaju-glow"></div>
+        <div id="kaju-shadow"></div>
+        <div id="kaju"></div>
+      </div>
+    </div>
+
+    <!-- Speech bubbles (screen space) -->
+    <div id="bubbles">
+      <div class="bubble-stack">
+        <div class="bubble b1" id="b1"><span class="typed"></span></div>
+        <div class="bubble b2" id="b2"><span class="typed"></span></div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" id="scroll-cue">
+      <span>Scroll to dig in</span>
+      <div class="cue-arrow"><i></i></div>
+    </div>
+
+    <a class="resume-link" href="https://kaju008.github.io/Kaju-Soni--Portfolio/assets/Kaju_Soni_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+
+  <!-- Scroll length that drives the story -->
+  <div id="scroll"></div>
+
+  <noscript><p style="padding:24px;font-family:sans-serif">This story needs JavaScript. You can view the classic portfolio at <a href="https://kaju008.github.io/Kaju-Soni--Portfolio/">kaju008.github.io/Kaju-Soni--Portfolio</a>.</p></noscript>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="js/kaju.js?v=1"></script>
+  <script src="js/scene.js?v=1"></script>
+</body>
+</html>
