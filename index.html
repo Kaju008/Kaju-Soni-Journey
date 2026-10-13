@@ -2,77 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Kaju Soni — From Seed to Story</title>
-  <meta name="description" content="The story of Kaju Soni, video and motion designer, told as a cashew that grows into a tree.">
+  <meta name="description" content="Kaju means cashew. This is how one grew into a video editor, motion designer and visual storyteller with 8+ years across news, edtech, healthcare and fintech.">
+  <meta name="theme-color" content="#E7F2EC">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=2">
 </head>
-<body>
-  <!-- Fixed stage: everything visible lives here; the page scroll only drives the story -->
-  <div id="stage" aria-hidden="false">
-    <div id="world">
-      <!-- SKY / white hero -->
-      <section class="sky" aria-label="Hello">
-        <div class="aura a1"></div><div class="aura a2"></div><div class="aura a3"></div><div class="aura a4"></div>
-        <div class="sparkles" id="sparkles"></div>
-      </section>
+<body class="gated">
 
-      <!-- GROUND: glossy surface + cut-away soil -->
-      <div id="ground">
-        <div class="ground-top">
-          <div class="grass-lip"></div>
-          <div class="grass-blades"></div>
-          <div class="horizon-glow"></div>
+  <div id="stage">
+    <canvas id="world" aria-hidden="true"></canvas>
+
+    <!-- ====== GATE ====== -->
+    <div class="gate" id="gate">
+      <p class="gate-kicker">Kaju Soni</p>
+      <button class="plant" id="plant" aria-label="Press and hold to plant the seed">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="plant-track" cx="60" cy="60" r="54"/><circle class="plant-fill" id="plant-fill" cx="60" cy="60" r="54"/></svg>
+      </button>
+      <p class="gate-cta" id="gate-cta">Press and hold to plant</p>
+    </div>
+
+    <!-- ====== SCENES (text layers, driven by scroll) ====== -->
+    <section class="scene s-hello" data-chapter="hello" aria-label="Hello">
+      <h1 class="title">Kaju<span class="title-sub">Soni</span></h1>
+      <p class="def"><span>kaju</span> <em>(n.)</em> Hindi for cashew. Also, me.</p>
+      <p class="lede">Every story starts as a seed. Scroll to watch mine grow.</p>
+      <picture class="me me-hello">
+        <source media="(max-width: 699px)" srcset="assets/img/me-arms-sm.webp">
+        <img src="assets/img/me-arms.webp" alt="Kaju Soni, arms crossed, soft smile" width="860" height="1290">
+      </picture>
+    </section>
+
+    <section class="scene s-dive" aria-hidden="true">
+      <p class="say"><i>Every story</i><br>starts underground</p>
+    </section>
+
+    <section class="scene s-roots" data-chapter="roots" aria-label="Roots: education">
+      <h2 class="chapter"><span class="chapter-n">Roots</span><i>where it began</i></h2>
+    </section>
+    <div class="nodes" id="nodes"></div>
+
+    <section class="scene s-sprout" data-chapter="sprout" aria-label="First leaf">
+      <p class="say"><i>Then,</i> a first leaf</p>
+    </section>
+
+    <section class="scene s-grow" data-chapter="growth" aria-label="Career">
+      <h2 class="chapter"><span class="chapter-n">Growth</span><i>six studios, four industries</i></h2>
+    </section>
+    <div class="eras" id="eras"></div>
+
+    <section class="scene s-fruit" data-chapter="work" aria-label="Selected work">
+      <h2 class="chapter"><span class="chapter-n">Fruit</span><i>a few cuts worth picking</i></h2>
+      <p class="hint">Tap a fruit to play it</p>
+    </section>
+    <div class="fruits" id="fruits"></div>
+
+    <section class="scene s-about" data-chapter="about" aria-label="About">
+      <div class="about">
+        <picture class="me me-think">
+          <source media="(max-width: 699px)" srcset="assets/img/me-think-sm.webp">
+          <img src="assets/img/me-think.webp" alt="Kaju, hand on chin, thinking" width="860" height="1290" loading="lazy">
+        </picture>
+        <div class="about-copy">
+          <h2 class="h2">The person <i>behind the tree</i></h2>
+          <p>I started in motion graphics and editing. Over eight years the work grew into shaping ideas, producing end to end and leading a small team that ships 35–40 pieces a month.</p>
+          <p>Lately AI is part of the kit: story, character sheets, shot-by-shot generation, voice, then the final cut in Premiere.</p>
+          <dl class="stats">
+            <div><dd>8+</dd><dt>years in creative production</dt></div>
+            <div><dd>3.6→8.3</dd><dt>Shorts a week at Angel One</dt></div>
+            <div><dd>50.8%</dd><dt>average retention, up from 40.9%</dt></div>
+            <div><dd>1M+</dd><dt>subscribers on a channel I edited for</dt></div>
+          </dl>
         </div>
-        <div class="soil">
-          <svg id="strata" aria-hidden="true" preserveAspectRatio="none"></svg>
-          <div id="years" aria-hidden="true"></div>
-          <canvas id="motes"></canvas>
-          <svg id="roots" aria-hidden="true"></svg>
-          <div id="root-cards"></div>
-          <div class="chapter-tag" id="tag-roots"><span>Chapter 01</span>Roots<em>where it all started</em></div>
-          <div class="soon" id="soon"><span class="soon-dot"></span>The sprout is on its way&hellip; <em>next chapter in progress</em></div>
+      </div>
+    </section>
+
+    <section class="scene s-contact" data-chapter="contact" aria-label="Contact">
+      <div class="contact">
+        <div class="contact-copy">
+          <h2 class="h2 big">Let's grow something <i>together</i></h2>
+          <div class="links">
+            <button class="pill" data-copy="Kajusoni008@gmail.com">Kajusoni008@gmail.com</button>
+            <button class="pill" data-copy="+91 96200 63901">+91 96200 63901</button>
+            <a class="pill" href="https://www.linkedin.com/in/kaju-soni-76522a16b" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="pill solid" href="assets/Kaju_Soni_Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+          </div>
+          <p class="foot">Bengaluru, India · <a href="https://kaju008.github.io/Kaju-Soni--Portfolio/">Classic portfolio</a> · <button class="link" id="replay">Plant it again</button></p>
         </div>
+        <picture class="me me-point">
+          <source media="(max-width: 699px)" srcset="assets/img/me-point-sm.webp">
+          <img src="assets/img/me-point.webp" alt="Kaju pointing at you with a grin" width="860" height="1290" loading="lazy">
+        </picture>
       </div>
+    </section>
 
-      <!-- Impact FX -->
-      <div id="impact"><div class="ring"></div><div class="ring r2"></div><div class="flash"></div></div>
-
-      <!-- Kaju -->
-      <div id="kaju-wrap">
-        <div id="kaju-glow"></div>
-        <div id="kaju-shadow"></div>
-        <div id="kaju"></div>
+    <!-- ====== HUD ====== -->
+    <header class="hud">
+      <span class="hud-name">Kaju Soni</span>
+      <div class="years" aria-hidden="true">
+        <div class="years-line"><i id="years-fill"></i></div>
+        <div class="years-ticks"><span>2015</span><span>2017</span><span>2020</span><span>2024</span><span>2026</span></div>
       </div>
-    </div>
-
-    <!-- Speech bubbles (screen space) -->
-    <div id="bubbles">
-      <div class="bubble-stack">
-        <div class="bubble b1" id="b1"><span class="typed"></span></div>
-        <div class="bubble b2" id="b2"><span class="typed"></span></div>
-      </div>
-    </div>
-
-    <div class="scroll-cue" id="scroll-cue">
-      <span>Scroll to dig in</span>
-      <div class="cue-arrow"><i></i></div>
-    </div>
-
-    <a class="resume-link" href="https://kaju008.github.io/Kaju-Soni--Portfolio/assets/Kaju_Soni_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="hud-btn" href="assets/Kaju_Soni_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </header>
+    <nav class="dock" aria-label="Chapters">
+      <button data-go="hello">Seed</button>
+      <button data-go="roots">Roots</button>
+      <button data-go="growth">Growth</button>
+      <button data-go="work">Work</button>
+      <button data-go="about">About</button>
+      <button data-go="contact">Contact</button>
+    </nav>
+    <div class="scroll-pill" id="scroll-pill"><i></i>Scroll</div>
   </div>
 
-  <!-- Scroll length that drives the story -->
-  <div id="scroll"></div>
+  <div id="track"></div>
 
-  <noscript><p style="padding:24px;font-family:sans-serif">This story needs JavaScript. You can view the classic portfolio at <a href="https://kaju008.github.io/Kaju-Soni--Portfolio/">kaju008.github.io/Kaju-Soni--Portfolio</a>.</p></noscript>
+  <!-- Video player -->
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="lb-scrim" id="lb-scrim"></div>
+    <div class="lb-card">
+      <div class="lb-frame" id="lb-frame"></div>
+      <div class="lb-bar">
+        <button class="lb-btn" id="lb-prev" aria-label="Previous video">Prev</button>
+        <a class="lb-btn" id="lb-ext" href="#" target="_blank" rel="noopener">Open on Instagram</a>
+        <button class="lb-btn" id="lb-next" aria-label="Next video">Next</button>
+        <button class="lb-btn close" id="lb-close" aria-label="Close video">Close</button>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="js/kaju.js?v=1"></script>
-  <script src="js/scene.js?v=1"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/world.js?v=2"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>
